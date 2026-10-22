@@ -37,8 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # A sua app:
-        'consultas',
+    'consultas.apps.ConsultasConfig',  # <-- Garanta que está exatamente assim
 ]
 
 MIDDLEWARE = [
