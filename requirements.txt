@@ -1,0 +1,11 @@
+altgraph @ file:///AppleInternal/Library/BuildRoots/4~CWf1ugC3_RstQHajYbNprD61Lrp7NDnZe8FI4sg/Library/Caches/com.apple.xbs/TemporaryDirectory.JelkJj/Sources/python3/altgraph-0.17.2-py2.py3-none-any.whl
+asgiref==3.11.1
+Django==4.2.30
+future @ file:///AppleInternal/Library/BuildRoots/4~CWf1ugC3_RstQHajYbNprD61Lrp7NDnZe8FI4sg/Library/Caches/com.apple.xbs/TemporaryDirectory.JelkJj/Sources/python3/future-0.18.2-py3-none-any.whl
+gunicorn==23.0.0
+macholib @ file:///AppleInternal/Library/BuildRoots/4~CWf1ugC3_RstQHajYbNprD61Lrp7NDnZe8FI4sg/Library/Caches/com.apple.xbs/TemporaryDirectory.JelkJj/Sources/python3/macholib-1.15.2-py2.py3-none-any.whl
+packaging==26.3
+six @ file:///AppleInternal/Library/BuildRoots/4~CWf1ugC3_RstQHajYbNprD61Lrp7NDnZe8FI4sg/Library/Caches/com.apple.xbs/TemporaryDirectory.JelkJj/Sources/python3/six-1.15.0-py2.py3-none-any.whl
+sqlparse==0.5.5
+typing_extensions==4.16.0
+whitenoise==6.11.0
