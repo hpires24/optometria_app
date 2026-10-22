@@ -13,6 +13,7 @@
   <p class="text-sm text-gray-500">Optometria Simples</p>
 </header>
 
+<!-- Formulário -->
 <main class="bg-white p-5 rounded-2xl shadow-sm mb-6 border border-gray-100">
   <h2 class="text-lg font-semibold mb-4 text-gray-700">Nova Consulta</h2>
   <form method="POST" class="space-y-4">
@@ -28,7 +29,6 @@
       {{ form.nome_paciente }}
     </div>
 
-    <!-- Seleção de Lentes de Contacto -->
     <div class="flex items-center space-x-3 bg-gray-50 p-3 rounded-lg border border-gray-200">
       {{ form.lentes }}
       <label for="{{ form.lentes.id_for_label }}" class="text-base font-medium text-gray-700 cursor-pointer">
@@ -36,7 +36,6 @@
       </label>
     </div>
 
-    <!-- Seleção de Lentes Progressivas -->
     <div class="flex items-center space-x-3 bg-gray-50 p-3 rounded-lg border border-gray-200">
       {{ form.progressivas }}
       <label for="{{ form.progressivas.id_for_label }}" class="text-base font-medium text-gray-700 cursor-pointer">
@@ -55,14 +54,29 @@
   </form>
 </main>
 
+<!-- Lista de Consultas com Botão de Apagar -->
 <section>
-  <h2 class="text-lg font-semibold mb-3 text-gray-700">Últimos Registos</h2>
+  <div class="flex justify-between items-center mb-3">
+    <h2 class="text-lg font-semibold text-gray-700">Últimos Registos</h2>
+    <span class="text-xs bg-gray-200 text-gray-600 px-2 py-1 rounded-full font-medium">
+                {{ consultas|length }} registos
+            </span>
+  </div>
+
   <div class="space-y-3">
     {% for consulta in consultas %}
     <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
       <div class="flex justify-between items-start mb-1">
         <span class="font-bold text-gray-800 text-base">{{ consulta.nome_paciente }}</span>
-        <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">{{ consulta.data_consulta|date:"d/m/Y" }}</span>
+        <div class="flex items-center space-x-2">
+          <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">{{ consulta.data_consulta|date:"d/m/Y" }}</span>
+          <!-- Botão Eliminar -->
+          <a href="{% url 'eliminar_consulta' consulta.id %}"
+             onclick="return confirm('Tem a certeza que deseja apagar o registo de {{ consulta.nome_paciente }}?');"
+             class="text-red-500 hover:text-red-700 bg-red-50 p-1 rounded-lg text-xs font-semibold px-2 transition">
+            Apagar
+          </a>
+        </div>
       </div>
 
       <div class="mt-2 flex flex-wrap gap-1">

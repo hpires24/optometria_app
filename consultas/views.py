@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Consulta
 from .forms import ConsultaForm
 
@@ -11,5 +11,10 @@ def home(request):
     else:
         form = ConsultaForm()
 
-    consultas = Consulta.objects.all()[:10]  # Obtém as 10 consultas mais recentes
+    consultas = Consulta.objects.all()[:20]  # Mostra as últimas 20 consultas
     return render(request, 'consultas/home.html', {'form': form, 'consultas': consultas})
+
+def eliminar_consulta(request, consulta_id):
+    consulta = get_object_or_404(Consulta, id=consulta_id)
+    consulta.delete()
+    return redirect('home')
