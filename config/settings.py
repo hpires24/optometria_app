@@ -80,7 +80,8 @@ DATABASES = {
     'default': dj_database_url.config(
         default='sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3'),
         conn_max_age=600,
-        ssl_require=True  # O Supabase exige ligação segura SSL
+       # ssl_require=True  # O Supabase exige ligação segura SSL
+        ssl_require=os.getenv('DATABASE_URL') is not None
     )
 }
 
